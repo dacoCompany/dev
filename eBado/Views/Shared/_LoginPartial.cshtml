@@ -1,0 +1,23 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    <nav-account>
+        <ul>
+            <li>
+                <a href="#"><span class="glyphicon glyphicon-user"></span> jozko.mrkvicka@email.com<div id="down-triangle"></div></a>
+                <ul>
+                    <li><a href="#">Moje inzeráty<div class="circle"></div></a></li>
+                    <li><a href="#">Moje dopyty<div class="circle"></div></a></li>
+                    <li><a href="#">Nastavenie<div class="circle"></div></a></li>
+                    <li><a href="#">Zmena hesla<div class="circle"></div></a></li>
+                    <li><a href="#">Odhlásiť sa<div class="circle"></div></a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav-account>
+}
+else
+{
+    <input type="button" name="btn" class="transparent-btn" value="REGISTRÁCIA" />
+    <input type="button" name="btn" class="transparent-btn" value="PRIHLÁSENIE" />
+}
