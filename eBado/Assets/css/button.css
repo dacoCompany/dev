@@ -1,0 +1,18 @@
+.transparent-btn {
+float:right;
+  background: #343434;
+  border: 2px #3498db solid;
+
+  font-family: Arial;
+  color: #3498db;
+  font-size: 15px;
+  padding: 6px 14px 6px 14px;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+.transparent-btn:hover {
+  background: #00b6ff; 
+  border: 2px #00b6ff solid;
+  color: #fff;
+}
