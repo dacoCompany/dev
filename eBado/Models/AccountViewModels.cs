@@ -74,7 +74,7 @@ namespace eBado.Models
 
         [Required(ErrorMessage = "Your must provide a PhoneNumber")]
         [Display(Name = "PostalCode")]
-        public string County { get; set; }
+        public string Abc { get; set; }
 
         [Required(ErrorMessage = "Your must provide a PhoneNumber")]
         [Display(Name = "Ico")]
