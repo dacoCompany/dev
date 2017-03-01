@@ -209,35 +209,19 @@ nav-account ul ul li a:hover {
 }
 
 
-/*** end account navbar ***/
-
-.btn {
-float:right;
-  background: #343434;
-  border: 2px #3498db solid;
-  -webkit-border-radius: 10;
-  -moz-border-radius: 10;
-  border-radius: 15px;
-  font-family: Arial;
-  color: #3498db;
-  font-size: 15px;
-  padding: 6px 14px 6px 14px;
-  text-decoration: none;
-  margin-left: 5px;
+/***** Footer *****/
+.e-footer {
+  position: absolute;
+  height: 70px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #d8d8d8;
+  text-align: center;
 }
 
-.btn:hover {
-  background: #00b6ff; 
-  border: #00b6ff solid;
-  text-decoration: none;
-}
 
-.search-panel {
-background: #4f4f4f;
-width: 100%;
-height: 200px;
-margin: 0px auto;
-}
 
 
 

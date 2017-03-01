@@ -9,12 +9,9 @@ namespace eBado
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Assets/js/jquery-{version}.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Assets/js/bootstrap.js",
-                      "~/Assets/js/bootstrap-hover-dropdown.js"));
-
+                        "~/Assets/js/jquery-1.11.1.min.js",
+                        "~/Assets/js/bootstrap.js",
+                        "~/Assets/js/bootstrap-hover-dropdown.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Assets/css/bootstrap.css",

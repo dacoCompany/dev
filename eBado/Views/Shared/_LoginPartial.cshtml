@@ -18,6 +18,6 @@
 }
 else
 {
-    <input type="button" name="btn" class="transparent-btn" value="REGISTRÁCIA" />
-    <input type="button" name="btn" class="transparent-btn" value="PRIHLÁSENIE" />
+    <input type="button" name="btn" class="transparent-btn" onclick="location.href='@Url.Action("Register", "Account")'" value="REGISTRÁCIA" />
+    <input type="button" name="btn" class="transparent-btn" onclick="location.href='@Url.Action("Login", "Account")'" value="PRIHLÁSENIE" />
 }

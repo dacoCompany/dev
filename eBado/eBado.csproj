@@ -217,11 +217,8 @@
     <Content Include="Assets\fonts\fontawesome-webfont.svg" />
     <Content Include="Assets\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Assets\js\bootstrap-hover-dropdown.js" />
-    <Content Include="Assets\js\bootstrap-hover-dropdown.min.js" />
     <Content Include="Assets\js\bootstrap.js" />
-    <Content Include="Assets\js\bootstrap.min.js" />
     <Content Include="Assets\js\jquery-1.11.1.min.js" />
-    <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -241,7 +238,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Account\" />
     <Folder Include="Views\Manage\" />
   </ItemGroup>
   <ItemGroup>
@@ -254,6 +250,8 @@
     <Content Include="Assets\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Assets\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Project_Readme.html" />
+    <Content Include="Views\Home\Index2.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

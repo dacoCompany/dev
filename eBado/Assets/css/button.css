@@ -1,7 +1,7 @@
 .transparent-btn {
 float:right;
   background: #343434;
-  border: 2px #3498db solid;
+  border: 1px #3498db solid;
 
   font-family: Arial;
   color: #3498db;
@@ -13,6 +13,6 @@ float:right;
 
 .transparent-btn:hover {
   background: #00b6ff; 
-  border: 2px #00b6ff solid;
+  border: 1px #00b6ff solid;
   color: #fff;
 }
