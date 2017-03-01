@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace eBado.Models
 {
@@ -31,6 +30,11 @@ namespace eBado.Models
         [DataType(DataType.PhoneNumber)]
         [RegularExpression("[0-9]{10}", ErrorMessage = "Must have 10 digits!")]
         public string PhoneNumber { get; set; }
+
+        [Required]
+        [DataType(DataType.Password)]
+        [Display(Name = "Password")]
+        public string Password { get; set; }
     }
 
     public class RegisterPartTimeJobViewModel
@@ -76,7 +80,6 @@ namespace eBado.Models
         [Display(Name = "Ico")]
         public int Ico { get; set; }
 
-        [Required(ErrorMessage = "Your must provide a PhoneNumber")]
         [Display(Name = "Dic")]
         public string Dic { get; set; }
 
@@ -104,7 +107,7 @@ namespace eBado.Models
 
         [Required(ErrorMessage = "Your must provide a PhoneNumber")]
         [Display(Name = "PostalCode")]
-        public string County { get; set; }
+        public string PostalCode { get; set; }
 
         [Required(ErrorMessage = "Your must provide a PhoneNumber")]
         [Display(Name = "Ico")]
