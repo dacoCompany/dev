@@ -72,9 +72,13 @@ namespace eBado.Models
         [RegularExpression("[0-9]{10}", ErrorMessage = "Must have 10 digits!")]
         public string PhoneNumber1 { get; set; }
 
+
+
+
+
         [Required(ErrorMessage = "Your must provide a PhoneNumber")]
         [Display(Name = "PostalCode")]
-        public string County { get; set; }
+        public string PostalCode { get; set; }
 
         [Required(ErrorMessage = "Your must provide a PhoneNumber")]
         [Display(Name = "Ico")]
