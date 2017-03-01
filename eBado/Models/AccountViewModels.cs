@@ -47,7 +47,7 @@ namespace eBado.Models
         public string PhoneNumber { get; set; }
 
         [Required(ErrorMessage = "Your must provide a PhoneNumber")]
-        [Display(Name = "County")]
+        [Display(Name = "PostalCode")]
         public string County { get; set; }
 
         [Required(ErrorMessage = "Your must provide a PhoneNumber")]
@@ -69,7 +69,7 @@ namespace eBado.Models
         public string PhoneNumber1 { get; set; }
 
         [Required(ErrorMessage = "Your must provide a PhoneNumber")]
-        [Display(Name = "County")]
+        [Display(Name = "PostalCode")]
         public string County { get; set; }
 
         [Required(ErrorMessage = "Your must provide a PhoneNumber")]
@@ -103,7 +103,7 @@ namespace eBado.Models
         public string CompanyName { get; set; }
 
         [Required(ErrorMessage = "Your must provide a PhoneNumber")]
-        [Display(Name = "County")]
+        [Display(Name = "PostalCode")]
         public string County { get; set; }
 
         [Required(ErrorMessage = "Your must provide a PhoneNumber")]
@@ -131,17 +131,17 @@ namespace eBado.Models
     {
         [Required(ErrorMessage = "Your must provide a Password")]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Old Password")]
         public string OldPassword { get; set; }
 
         [Required(ErrorMessage = "Your must provide a Password")]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "New Password")]
         public string NewPassword { get; set; }
 
         [Required(ErrorMessage = "Your must provide a Password")]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "New Password again")]
         public string ConfirmNewPassword { get; set; }
     }
 }
