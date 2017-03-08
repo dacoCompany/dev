@@ -1,14 +1,6 @@
-﻿using System;
-using System.Globalization;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Web;
+﻿using System.Threading.Tasks;
 using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
-using eBado.Models;
+using eBado.Models.Account;
 
 namespace eBado.Controllers
 {
@@ -20,6 +12,20 @@ namespace eBado.Controllers
         {
             ViewBag.ReturnUrl = returnUrl;
             return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+        {
+            if (ModelState.IsValid)
+            {
+                {
+                   ModelState.AddModelError("", "Login data is incorrect!");
+                }
+            }
+            return View(model);
         }
     }
 }
