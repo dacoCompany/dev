@@ -2,7 +2,7 @@
 
 namespace eBado.Models.Account
 {
-    public class ForgotPasswordViewModel
+    public class ForgotPasswordModel
     {
         [Required]
         [EmailAddress]

@@ -17,7 +17,7 @@ namespace eBado.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+        public async Task<ActionResult> Login(LoginModel model, string returnUrl)
         {
             if (ModelState.IsValid)
             {
@@ -27,5 +27,26 @@ namespace eBado.Controllers
             }
             return View(model);
         }
+
+        [AllowAnonymous]
+        public ActionResult RegisterNewAccount()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> RegisterNewAccount(RegisterFormModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                {
+                    ModelState.AddModelError("", "Register data is incorrect!");
+                }
+            }
+            return View(model);
+        }
+
     }
 }

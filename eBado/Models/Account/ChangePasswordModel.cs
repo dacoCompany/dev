@@ -2,7 +2,7 @@
 
 namespace eBado.Models.Account
 {
-    public class ChangePasswordViewModel
+    public class ChangePasswordModel
     {
         [Required(ErrorMessage = "Your must provide a Password")]
         [DataType(DataType.Password)]

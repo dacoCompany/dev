@@ -13,7 +13,7 @@
         <div class="container">
             <div class="top-panel-img"></div>
             <div class="top-panel-drop">
-               @Html.Partial("_LoginPartial")
+                @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
@@ -39,7 +39,8 @@
                         <a href="@Url.Action("Index2", "Home")"><i class="fa fa-comments"></i><br>dopyt</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-tasks"></i><br>faq</a>
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Index3" ? "active" : "")">
+                        <a href="@Url.Action("Index3", "Home")"><i class="fa fa-tasks"></i><br>faq</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-user"></i><br>cenník</a>
@@ -56,6 +57,6 @@
         </div>
     </div>
 
-   
+
 </body>
 </html>

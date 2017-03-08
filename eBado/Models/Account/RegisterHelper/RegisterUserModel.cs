@@ -2,7 +2,7 @@
 
 namespace eBado.Models.Account
 {
-    public class RegisterUserViewModel
+    public class RegisterUserModel
     {
         [Required]
         [EmailAddress]

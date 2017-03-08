@@ -1,5 +1,5 @@
 ﻿@using Microsoft.AspNet.Identity
-@model eBado.Models.Account.LoginViewModel
+@model eBado.Models.Account.LoginModel
 @if (Request.IsAuthenticated)
 {
     <nav-account>
@@ -19,7 +19,7 @@
 }
 else
 {
-    <input type="button" name="btn" class="transparent-btn" onclick="location.href='@Url.Action("Register", "Account")'" value="REGISTRÁCIA" />
+    <input type="button" name="btn" class="transparent-btn" onclick="location.href='@Url.Action("RegisterNewAccount", "Account")'" value="REGISTRÁCIA" />
     <input type="button" name="btn" class="transparent-btn" data-toggle="modal" data-target="#e-login-form" value="PRIHLÁSENIE" />
 
      <!-- Modal -->

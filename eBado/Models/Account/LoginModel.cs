@@ -2,7 +2,7 @@
 
 namespace eBado.Models.Account
 {
-    public class LoginViewModel
+    public class LoginModel
     {
         [Required(ErrorMessage = "Povinne pole")]
         [Display(Name = "Email")]
