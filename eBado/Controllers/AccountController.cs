@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
 using System.Web.Mvc;
-using eBado.Models.Account;
+using Web.eBado.Models.Account;
 
-namespace eBado.Controllers
+namespace Web.eBado.Controllers
 {
     [Authorize]
     public class AccountController : Controller

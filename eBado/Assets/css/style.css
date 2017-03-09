@@ -4,6 +4,7 @@ body {
     font-family: 'Open Sans', sans-serif;
     color: #888;
     font-size: 12px;
+    height: 100%;
 }
 
 a {
@@ -210,15 +211,19 @@ nav-account ul ul li a:hover {
 
 
 /***** Footer *****/
-.e-footer {
-  position: absolute;
-  height: 70px;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 1rem;
-  background-color: #d8d8d8;
-  text-align: center;
+.e-wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -70px; /* the bottom margin is the negative value of the footer's height */
+}
+.e-footer{
+    height: 70px; /* .push must be the same height as .footer */
+    background-color: #d8d8d8;
+}
+.e-push{
+    height: 70px; /* .push must be the same height as .footer */
+    background-color: #ddd;
 }
 
 /***** Custom Heplers *****/
@@ -323,8 +328,15 @@ nav-account ul ul li a:hover {
     font-weight:bold;
 }
 
+/***** Register Form *****/
+.control-group {
+    text-align:left;
+    margin-top: 5px;
+}
 
-
+.validation-block {
+    color: red;
+}
 
 
 

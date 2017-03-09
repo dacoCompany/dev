@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using Web.eBado.Models.Account.RegisterHelper;
 
-namespace eBado.Models.Account
+namespace Web.eBado.Models.Account
 {
-    public class RegisterFormModel
+    public class RegisterFormModel 
     {
-        public RegisterUserModel RegisterUser { get; set; }
+        public RegisterStandardUserModel RegisterUser { get; set; }
         public RegisterPartTimeJobModel RegisterPartTimeJob { get; set; }
         public RegisterSelfEmployedModel RegisterSelfEmployed { get; set; }
         public RegisterCompanyModel RegisterCompany { get; set; }

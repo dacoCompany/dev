@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace eBado.Models.Account
+namespace Web.eBado.Models.Account
 {
     public class ForgotPasswordModel
     {

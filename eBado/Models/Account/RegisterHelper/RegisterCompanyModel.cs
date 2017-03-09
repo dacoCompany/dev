@@ -1,20 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace eBado.Models.Account
+namespace Web.eBado.Models.Account.RegisterHelper
 {
-    public class RegisterCompanyModel
+    public class RegisterCompanyModel : RegisterBaseModel
     {
-        [Required]
-        [EmailAddress]
-        [Display(Name = "Email")]
-        public string Email { get; set; }
-
-        [Required(ErrorMessage = "Your must provide a PhoneNumber")]
-        [Display(Name = "Home Phone")]
-        [DataType(DataType.PhoneNumber)]
-        [RegularExpression("[0-9]{10}", ErrorMessage = "Must have 10 digits!")]
-        public string PhoneNumber1 { get; set; }
-
         [Required(ErrorMessage = "Your must provide a PhoneNumber")]
         [Display(Name = "CompanyName")]
         public string CompanyName { get; set; }

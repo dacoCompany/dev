@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace eBado
+namespace Web.eBado
 {
     public class BundleConfig
     {

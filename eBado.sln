@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eBado", "eBado\eBado.csproj", "{1D760071-DE83-42BF-A985-FB6F8B3E36E7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.eBado", "eBado\Web.eBado.csproj", "{1D760071-DE83-42BF-A985-FB6F8B3E36E7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{98E490B1-4EDE-402A-9425-11E1354F6EEB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +20,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1D760071-DE83-42BF-A985-FB6F8B3E36E7} = {98E490B1-4EDE-402A-9425-11E1354F6EEB}
 	EndGlobalSection
 EndGlobal

@@ -1,8 +1,8 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(eBado.Startup))]
-namespace eBado
+[assembly: OwinStartupAttribute(typeof(Web.eBado.Startup))]
+namespace Web.eBado
 {
     public partial class Startup
     {

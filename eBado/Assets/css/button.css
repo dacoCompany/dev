@@ -16,3 +16,23 @@ float:right;
   border: 1px #00b6ff solid;
   color: #fff;
 }
+
+/***** Form Button*****/
+
+.form-btn {
+float:right;
+background-color:#fff;
+  border: 2px #00b6ff solid;
+  font-family: Arial;
+  color: #00b6ff;
+  font-size: 15px;
+  padding: 6px 14px 6px 14px;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+.form-btn:hover {
+  background: #00b6ff; 
+  border: 2px #00b6ff solid;
+  color: #fff;
+}
