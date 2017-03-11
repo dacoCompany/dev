@@ -1,27 +1,25 @@
 ﻿@model Web.eBado.Models.Account.RegisterFormModel
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
-    <div class="container">
-        <h2 class="col-md-offset-3" style="text-align:left">Registracia</h2>
-        <ul class="nav nav-pills col-md-offset-3">
+    <h2 class="form-center" style="text-align:left">Registracia</h2>
+        <ul class="nav nav-pills">
             <li class="active"><a data-toggle="pill" href="#account1">Zakladny ucet</a></li>
             <li><a data-toggle="pill" href="#account2">Praca na dohodu</a></li>
             <li><a data-toggle="pill" href="#account3">Zivnostik</a></li>
             <li><a data-toggle="pill" href="#account4">Firemny ucet</a></li>
         </ul>
-
-        <div class="tab-content col-md-offset-3">
-            <div id="account1" class="tab-pane fade in active">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-5">
+        <div class="container"  >
+            <div class="tab-content col-md-12">
+                <div id="account1" class="tab-pane fade in active">
+                    <div class="form-center">
+                        <div class="col-md-11">
 
                             <form class="form-horizontal" action="" method="POST">
-                                <fieldset>
+                                <fieldset style="margin-left:20px">
                                     <div class="control-group">
                                         <label class="control-label" for="username">Username</label>
                                         <div class="controls">
@@ -62,24 +60,23 @@
                                     </div>
                                 </fieldset>
                             </form>
-
                         </div>
                     </div>
                 </div>
-            </div>
-            <div id="account2" class="tab-pane fade">
-                <div style="height:800px; color:aqua"></div>
-            </div>
-            <div id="account3" class="tab-pane fade">
-                <h3>Menu 2</h3>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-            </div>
-            <div id="account4" class="tab-pane fade">
-                <h3>Menu 3</h3>
-                <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                <div id="account2" class="tab-pane fade">
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+
+                </div>
+                <div id="account3" class="tab-pane fade">
+                    <h3>Menu 2</h3>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                </div>
+                <div id="account4" class="tab-pane fade">
+                    <h3>Menu 3</h3>
+                    <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                </div>
             </div>
         </div>
-    </div>
 }
 
 
