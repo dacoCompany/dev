@@ -6,9 +6,9 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using eBado.Models;
+using Web.eBado.Models;
 
-namespace eBado.Controllers
+namespace Web.eBado.Controllers
 {
     [Authorize]
     public class ManageController : Controller

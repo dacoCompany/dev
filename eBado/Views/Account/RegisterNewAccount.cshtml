@@ -1,0 +1,82 @@
+﻿@model Web.eBado.Models.Account.RegisterFormModel
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <h2 class="form-center" style="text-align:left">Registracia</h2>
+        <ul class="nav nav-pills">
+            <li class="active"><a data-toggle="pill" href="#account1">Zakladny ucet</a></li>
+            <li><a data-toggle="pill" href="#account2">Praca na dohodu</a></li>
+            <li><a data-toggle="pill" href="#account3">Zivnostik</a></li>
+            <li><a data-toggle="pill" href="#account4">Firemny ucet</a></li>
+        </ul>
+        <div class="container"  >
+            <div class="tab-content col-md-12">
+                <div id="account1" class="tab-pane fade in active">
+                    <div class="form-center">
+                        <div class="col-md-11">
+
+                            <form class="form-horizontal" action="" method="POST">
+                                <fieldset style="margin-left:20px">
+                                    <div class="control-group">
+                                        <label class="control-label" for="username">Username</label>
+                                        <div class="controls">
+                                            <input type="text" id="username" name="username" placeholder="" class="form-control input-lg">
+                                            <p class="validation-block">validation error message: "get a fuck out!"</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group">
+                                        <label class="control-label" for="email">E-mail</label>
+                                        <div class="controls">
+                                            <input type="email" id="email" name="email" placeholder="" class="form-control input-lg">
+                                            <p class="validation-block">validation error message: "get a fuck out!"</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group">
+                                        <label class="control-label" for="password">Password</label>
+                                        <div class="controls">
+                                            <input type="password" id="password" name="password" placeholder="" class="form-control input-lg">
+                                            <p class="validation-block">validation error message: "get a fuck out!"</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group">
+                                        <label class="control-label" for="password_confirm">Password (Confirm)</label>
+                                        <div class="controls">
+                                            <input type="password" id="password_confirm" name="password_confirm" placeholder="" class="form-control input-lg">
+                                            <p class="validation-block">validation error message: "get a fuck out!"</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group">
+                                        <!-- Button -->
+                                        <div class="controls">
+                                            <button class="form-btn">REGISTROVAT</button>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div id="account2" class="tab-pane fade">
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+
+                </div>
+                <div id="account3" class="tab-pane fade">
+                    <h3>Menu 2</h3>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                </div>
+                <div id="account4" class="tab-pane fade">
+                    <h3>Menu 3</h3>
+                    <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                </div>
+            </div>
+        </div>
+}
+
+

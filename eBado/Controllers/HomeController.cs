@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace eBado.Controllers
+namespace Web.eBado.Controllers
 {
     public class HomeController : Controller
     {
@@ -14,6 +14,11 @@ namespace eBado.Controllers
         }
 
         public ActionResult Index2()
+        {
+            return View();
+        }
+
+        public ActionResult Index3()
         {
             return View();
         }

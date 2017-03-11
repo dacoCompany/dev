@@ -5,9 +5,9 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
-using eBado.Models;
+using Web.eBado.Models;
 
-namespace eBado
+namespace Web.eBado
 {
     public partial class Startup
     {

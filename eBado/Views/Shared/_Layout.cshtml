@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
-    
+    @Scripts.Render("~/bundles/jquery")
 </head>
 <body>
     <!-- Top panel -->
@@ -13,7 +13,7 @@
         <div class="container">
             <div class="top-panel-img"></div>
             <div class="top-panel-drop">
-               @Html.Partial("_LoginPartial")
+                @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
@@ -39,7 +39,8 @@
                         <a href="@Url.Action("Index2", "Home")"><i class="fa fa-comments"></i><br>dopyt</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-tasks"></i><br>faq</a>
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Index3" ? "active" : "")">
+                        <a href="@Url.Action("Index3", "Home")"><i class="fa fa-tasks"></i><br>faq</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-user"></i><br>cenník</a>
@@ -49,13 +50,23 @@
         </div>
     </nav>
 
-    <div class="container">
+   
+    @*<div class="e-wrapper">
         @RenderBody()
+        <div class="e-pull-left"></div>
         <div class="e-footer">
             <p>&copy; @DateTime.Now.Year - eBado Application</p>
         </div>
-    </div>
+    </div>*@
 
-    @Scripts.Render("~/bundles/jquery")
+    <div id="wrap">
+        <div class="container">@RenderBody()</div>
+    </div>
+    <footer id="footer">
+        <div class="container">
+            <p>&copy; @DateTime.Now.Year - eBado Application</p>
+        </div>
+    </footer>
+
 </body>
 </html>
