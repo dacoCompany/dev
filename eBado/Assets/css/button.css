@@ -20,7 +20,7 @@ float:right;
 /***** Form Button*****/
 
 .form-btn {
-float:right;
+float:none;
 background-color:#fff;
   border: 2px #00b6ff solid;
   font-family: Arial;

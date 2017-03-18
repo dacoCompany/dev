@@ -260,6 +260,7 @@
     <Content Include="Views\Home\Index2.cshtml" />
     <Content Include="Views\Home\Index3.cshtml" />
     <Content Include="Views\Account\RegisterNewAccount.cshtml" />
+    <Content Include="Views\Account\TestReg.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Infrastructure.Common.DB\Infrastructure.Common.DB.csproj">

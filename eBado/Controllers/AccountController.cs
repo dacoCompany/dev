@@ -34,6 +34,11 @@ namespace Web.eBado.Controllers
             return View(model);
         }
 
+        public ActionResult TestReg()
+        {
+            return View();
+        }
+
         [AllowAnonymous]
         public ActionResult RegisterNewAccount()
         {
@@ -43,7 +48,7 @@ namespace Web.eBado.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult RegisterNewAccount(RegisterModel model, string accountType)
+        public ActionResult RegisterNewAccount(RegisterModel model)
         {
             if (ModelState.IsValid)
             {
@@ -56,7 +61,7 @@ namespace Web.eBado.Controllers
                     {
                         var accountLocation = uow.LocationRepository.FindWhere(lr => lr.PostalCode == model.PostalCode).FirstOrDefault();
                         var subCategory = uow.SubCategoryRepository.FindWhere(sc => sc.Name == model.Specialization).FirstOrDefault();
-                       
+                        var accountType = uow.AccountTypeRepository.FindWhere(at => at.Name == "").FirstOrDefault();
                         var addressModel = new AddressDbo
                         {
                             Street = model.Street,
@@ -77,7 +82,8 @@ namespace Web.eBado.Controllers
                             Dic = model.Dic,
                             SubCategoryId = subCategory.Id,
                             Password = CreateHashPassword(password, salt).ToString(),
-                            Salt = salt.ToString()
+                            Salt = salt.ToString(),
+                            AccountTypeId = accountType.Id
                         };
                         accountModel.Addresses.Add(addressModel);
 

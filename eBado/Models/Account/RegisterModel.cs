@@ -34,7 +34,7 @@ namespace Web.eBado.Models.Account
         public string Street { get; set; }
 
         [Display(Name = "StreetNumber")]
-        public int StreetNumber { get; set; }
+        public string StreetNumber { get; set; }
 
         [Display(Name = "Ico")]
         public string Ico { get; set; }
@@ -44,5 +44,6 @@ namespace Web.eBado.Models.Account
 
         [Display(Name = "Specialization")]
         public string Specialization { get; set; }
+        public string AccountType { get; set; }
     }
 }

@@ -2,8 +2,9 @@
 {
     public enum AccountType
     {
-        User = 1,
-        SelfEmployer,
-        Company,
+        Basic,
+        PartTime,
+        SelfEmployed,
+        Company
     }
 }
