@@ -9,6 +9,7 @@ namespace Web.eBado
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Assets/js/jquery-3.1.1.js",
+                        "~/Assets/js/jquery.validate.min.js",
                         "~/Assets/js/bootstrap.js",
                         "~/Assets/js/style.js",
                         "~/Assets/js/bootstrap-hover-dropdown.js"));

@@ -1,5 +1,4 @@
 ﻿@using Microsoft.AspNet.Identity
-@model Web.eBado.Models.Account.LoginModel
 @if (Request.IsAuthenticated)
 {
     <nav-account>
@@ -19,11 +18,11 @@
 }
 else
 {
-    <input type="button" name="btn" class="transparent-btn" onclick="location.href='@Url.Action("RegisterNewAccount", "Account")'" value="REGISTRÁCIA" />
+    <input type="button" name="btn" class="transparent-btn" onclick="location.href='@Url.Action("RegisterUser", "Account")'" value="REGISTRÁCIA" />
     <input type="button" name="btn" class="transparent-btn" data-toggle="modal" data-target="#e-login-form" value="PRIHLÁSENIE" />
 
      <!-- Modal -->
-    <div class="modal fade popup-form" id="e-login-form" role="dialog">
+    @*<div class="modal fade popup-form" id="e-login-form" role="dialog">
         <div class="container">
             <div class="row">
                 <div class="col-md-3 col-md-offset-8">
@@ -68,7 +67,7 @@ else
                 </div>
             </div>
         </div>
-    </div>
+    </div>*@
    
 
 }
