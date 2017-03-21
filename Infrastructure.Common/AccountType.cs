@@ -2,7 +2,7 @@
 {
     public enum AccountType
     {
-        Basic,
+        User,
         PartTime,
         SelfEmployed,
         Company

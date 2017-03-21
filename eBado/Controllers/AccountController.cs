@@ -47,43 +47,49 @@ namespace Web.eBado.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (CheckIfEmailExist(model.Email))
+                using (var uow = new UnitOfWork())
                 {
-                    var password = GeneratePassword();
-                    var salt = GenerateSalt();
-
-                    using (var uow = new UnitOfWork())
+                    if (!CheckIfEmailExist(model.Email, uow))
                     {
-                        var accountLocation = uow.LocationRepository.FindWhere(lr => lr.PostalCode == model.PostalCode).FirstOrDefault();
-                        var accountType = uow.AccountTypeRepository.FindWhere(at => at.Name == "").FirstOrDefault();
-                        var addressModel = new AddressDbo
-                        {
-                            Street = model.Street,
-                            Number = model.StreetNumber,
-                            LocationId = accountLocation.Id,
-                            IsBillingAddress = true
-                        };
-
-                        var accountModel = new UserAccountDbo
-                        {
-                            Email = model.Email,
-                            PhoneNumber = model.PhoneNumber,
-                            Title = model.Title,
-                            FirstName = model.FirstName,
-                            Surname = model.Surname,
-                            CompanyName = model.AccountName,
-                            Password = CreateHashPassword(password, salt).ToString(),
-                            Salt = salt.ToString(),
-                            AccountTypeId = accountType.Id
-                        };
-                        accountModel.Addresses.Add(addressModel);
-
-                        uow.Commit();
+                        ModelState.AddModelError("Email", "Email is not unique!");
+                        return View(model);
                     }
-                }
-                else
-                {
-                    ModelState.AddModelError("Email", "Email is not unique!");
+
+                    var accountLocation = uow.LocationRepository.FindWhere(lr => lr.PostalCode == model.PostalCode).FirstOrDefault();
+
+                    if (accountLocation == null)
+                    {
+                        ModelState.AddModelError("PostalCode", "Invalid PostalCode!");
+                        return View(model);
+                    }
+
+                    byte[] password = GeneratePassword();
+                    byte[] salt = GenerateSalt();
+                    var accountType = uow.AccountTypeRepository.FindWhere(at => at.Name == AccountType.Company.ToString()).FirstOrDefault();
+
+                    var addressModel = new AddressDbo
+                    {
+                        Street = model.Street,
+                        Number = model.StreetNumber,
+                        LocationId = uow.LocationRepository.FindWhere(lr => lr.PostalCode == model.PostalCode).FirstOrDefault().Id,
+                        IsBillingAddress = true
+                    };
+
+                    var accountModel = new UserAccountDbo
+                    {
+                        Email = model.Email,
+                        PhoneNumber = model.PhoneNumber,
+                        Title = model.Title,
+                        FirstName = model.FirstName,
+                        Surname = model.Surname,
+                        UniqueName = model.AccountName,
+                        Password = CreateHashPassword(password, salt).ToString(),
+                        Salt = salt.ToString(),
+                        AccountTypeId = accountType.Id
+                    };
+                    accountModel.Addresses.Add(addressModel);
+
+                    uow.Commit();
                 }
             }
             return View(model);
@@ -102,47 +108,47 @@ namespace Web.eBado.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (CheckIfEmailExist(model.Email))
-                {
-                    var password = GeneratePassword();
-                    var salt = GenerateSalt();
+                var password = GeneratePassword();
+                var salt = GenerateSalt();
 
-                    using (var uow = new UnitOfWork())
+                using (var uow = new UnitOfWork())
+                {
+                    if (!CheckIfEmailExist(model.Email, uow))
                     {
-                        var accountLocation = uow.LocationRepository.FindWhere(lr => lr.PostalCode == model.PostalCode).FirstOrDefault();
-                        var subCategory = uow.SubCategoryRepository.FindWhere(sc => sc.Name == model.Specialization).FirstOrDefault();
-                        var accountType = uow.AccountTypeRepository.FindWhere(at => at.Name == "").FirstOrDefault();
-                        var addressModel = new AddressDbo
-                        {
-                            Street = model.Street,
-                            Number = model.StreetNumber,
-                            LocationId = accountLocation.Id,
-                            IsBillingAddress = true
-                        };
-
-                        var accountModel = new UserAccountDbo
-                        {
-                            Email = model.Email,
-                            PhoneNumber = model.PhoneNumber,
-                            Title = model.Title,
-                            FirstName = model.FirstName,
-                            Surname = model.Surname,
-                            CompanyName = model.AccountName,
-                            SubCategoryId = subCategory.Id,
-                            Password = CreateHashPassword(password, salt).ToString(),
-                            Salt = salt.ToString(),
-                            AccountTypeId = accountType.Id
-                        };
-                        accountModel.Addresses.Add(addressModel);
-
-                        uow.Commit();
+                        ModelState.AddModelError("Email", "Email is not unique!");
+                        return View(model);
                     }
-                }
-                else
-                {
-                    ModelState.AddModelError("Email", "Email is not unique!");
+
+                    var accountLocation = uow.LocationRepository.FindWhere(lr => lr.PostalCode == model.PostalCode).FirstOrDefault();
+                    var subCategory = uow.SubCategoryRepository.FindWhere(sc => sc.Name == model.Specialization).FirstOrDefault();
+                    var accountType = uow.AccountTypeRepository.FindWhere(at => at.Name == "").FirstOrDefault();
+                    var addressModel = new AddressDbo
+                    {
+                        Street = model.Street,
+                        Number = model.StreetNumber,
+                        LocationId = accountLocation.Id,
+                        IsBillingAddress = true
+                    };
+
+                    var accountModel = new UserAccountDbo
+                    {
+                        Email = model.Email,
+                        PhoneNumber = model.PhoneNumber,
+                        Title = model.Title,
+                        FirstName = model.FirstName,
+                        Surname = model.Surname,
+                        UniqueName = model.AccountName,
+                        SubCategoryId = subCategory.Id,
+                        Password = CreateHashPassword(password, salt).ToString(),
+                        Salt = salt.ToString(),
+                        AccountTypeId = accountType.Id
+                    };
+                    accountModel.Addresses.Add(addressModel);
+
+                    uow.Commit();
                 }
             }
+
             return View(model);
         }
 
@@ -159,47 +165,53 @@ namespace Web.eBado.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (CheckIfEmailExist(model.Email))
+                using (var uow = new UnitOfWork())
                 {
-                    var password = GeneratePassword();
-                    var salt = GenerateSalt();
-
-                    using (var uow = new UnitOfWork())
+                    if (!CheckIfEmailExist(model.Email, uow))
                     {
-                        var accountLocation = uow.LocationRepository.FindWhere(lr => lr.PostalCode == model.PostalCode).FirstOrDefault();
-                        var subCategory = uow.SubCategoryRepository.FindWhere(sc => sc.Name == model.Specialization).FirstOrDefault();
-                        var accountType = uow.AccountTypeRepository.FindWhere(at => at.Name == "").FirstOrDefault();
-                        var addressModel = new AddressDbo
-                        {
-                            Street = model.Street,
-                            Number = model.StreetNumber,
-                            LocationId = accountLocation.Id,
-                            IsBillingAddress = true
-                        };
-
-                        var accountModel = new UserAccountDbo
-                        {
-                            Email = model.Email,
-                            PhoneNumber = model.PhoneNumber,
-                            Title = model.Title,
-                            FirstName = model.FirstName,
-                            Surname = model.Surname,
-                            CompanyName = model.AccountName,
-                            Ico = model.Ico,
-                            Dic = model.Dic,
-                            SubCategoryId = subCategory.Id,
-                            Password = CreateHashPassword(password, salt).ToString(),
-                            Salt = salt.ToString(),
-                            AccountTypeId = accountType.Id
-                        };
-                        accountModel.Addresses.Add(addressModel);
-
-                        uow.Commit();
+                        ModelState.AddModelError("Email", "Email is not unique!");
+                        return View(model);
                     }
-                }
-                else
-                {
-                    ModelState.AddModelError("Email", "Email is not unique!");
+
+                    var accountLocation = uow.LocationRepository.FindWhere(lr => lr.PostalCode == model.PostalCode).FirstOrDefault();
+
+                    if (accountLocation == null)
+                    {
+                        ModelState.AddModelError("PostalCode", "Invalid PostalCode!");
+                        return View(model);
+                    }
+
+                    byte[] password = GeneratePassword();
+                    byte[] salt = GenerateSalt();
+                    var subCategory = uow.SubCategoryRepository.FindWhere(sc => sc.Name == model.Specialization).FirstOrDefault();
+                    var accountType = uow.AccountTypeRepository.FindWhere(at => at.Name == AccountType.Company.ToString()).FirstOrDefault();
+
+                    var addressModel = new AddressDbo
+                    {
+                        Street = model.Street,
+                        Number = model.StreetNumber,
+                        LocationId = uow.LocationRepository.FindWhere(lr => lr.PostalCode == model.PostalCode).FirstOrDefault().Id,
+                        IsBillingAddress = true
+                    };
+
+                    var accountModel = new UserAccountDbo
+                    {
+                        Email = model.Email,
+                        PhoneNumber = model.PhoneNumber,
+                        Title = model.Title,
+                        FirstName = model.FirstName,
+                        Surname = model.Surname,
+                        UniqueName = model.AccountName,
+                        Ico = model.Ico,
+                        Dic = model.Dic,
+                        SubCategoryId = subCategory.Id,
+                        Password = CreateHashPassword(password, salt).ToString(),
+                        Salt = salt.ToString(),
+                        AccountTypeId = accountType.Id
+                    };
+                    accountModel.Addresses.Add(addressModel);
+
+                    uow.Commit();
                 }
             }
             return View(model);
@@ -218,60 +230,56 @@ namespace Web.eBado.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (CheckIfEmailExist(model.Email))
-                {
-                    var password = GeneratePassword();
-                    var salt = GenerateSalt();
+                var password = GeneratePassword();
+                var salt = GenerateSalt();
 
-                    using (var uow = new UnitOfWork())
+                using (var uow = new UnitOfWork())
+                {
+                    if (!CheckIfEmailExist(model.Email, uow))
                     {
-                        var accountLocation = uow.LocationRepository.FindWhere(lr => lr.PostalCode == model.PostalCode).FirstOrDefault();
-                        var subCategory = uow.SubCategoryRepository.FindWhere(sc => sc.Name == model.Specialization).FirstOrDefault();
-                        var accountType = uow.AccountTypeRepository.FindWhere(at => at.Name == "").FirstOrDefault();
-                        var addressModel = new AddressDbo
-                        {
-                            Street = model.Street,
-                            Number = model.StreetNumber,
-                            LocationId = accountLocation.Id,
-                            IsBillingAddress = true
-                        };
-
-                        var accountModel = new UserAccountDbo
-                        {
-                            Email = model.Email,
-                            PhoneNumber = model.PhoneNumber,
-                            Title = model.Title,
-                            FirstName = model.FirstName,
-                            Surname = model.Surname,
-                            CompanyName = model.AccountName,
-                            Ico = model.Ico,
-                            Dic = model.Dic,
-                            SubCategoryId = subCategory.Id,
-                            Password = CreateHashPassword(password, salt).ToString(),
-                            Salt = salt.ToString(),
-                            AccountTypeId = accountType.Id
-                        };
-                        accountModel.Addresses.Add(addressModel);
-
-                        uow.Commit();
+                        ModelState.AddModelError("Email", "Email is not unique!");
+                        return View(model);
                     }
-                }
-                else
-                {
-                    ModelState.AddModelError("Email", "Email is not unique!");
+
+                    var accountLocation = uow.LocationRepository.FindWhere(lr => lr.PostalCode == model.PostalCode).FirstOrDefault();
+                    var subCategory = uow.SubCategoryRepository.FindWhere(sc => sc.Name == model.Specialization).FirstOrDefault();
+                    var accountType = uow.AccountTypeRepository.FindWhere(at => at.Name == "").FirstOrDefault();
+                    var addressModel = new AddressDbo
+                    {
+                        Street = model.Street,
+                        Number = model.StreetNumber,
+                        LocationId = accountLocation.Id,
+                        IsBillingAddress = true
+                    };
+
+                    var accountModel = new UserAccountDbo
+                    {
+                        Email = model.Email,
+                        PhoneNumber = model.PhoneNumber,
+                        Title = model.Title,
+                        FirstName = model.FirstName,
+                        Surname = model.Surname,
+                        UniqueName = model.AccountName,
+                        Ico = model.Ico,
+                        Dic = model.Dic,
+                        SubCategoryId = subCategory.Id,
+                        Password = CreateHashPassword(password, salt).ToString(),
+                        Salt = salt.ToString(),
+                        AccountTypeId = accountType.Id
+                    };
+                    accountModel.Addresses.Add(addressModel);
+
+                    uow.Commit();
                 }
             }
             return View(model);
         }
 
         #region Private methods
-        private bool CheckIfEmailExist(string email)
+        private bool CheckIfEmailExist(string email, UnitOfWork uow)
         {
-            using (var uow = new UnitOfWork())
-            {
-                var userEmail = uow.UserAccountRepository.FindWhere(ua => ua.Email == email).FirstOrDefault();
-                return userEmail == null ? true : false;
-            }
+            var userEmail = uow.UserAccountRepository.FindWhere(ua => ua.Email == email).FirstOrDefault();
+            return userEmail == null ? true : false;
         }
 
         private static byte[] CreateHashPassword(byte[] newPassword, byte[] salt)

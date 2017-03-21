@@ -19,7 +19,7 @@ float:right;
 
 /***** Form Button*****/
 
-.form-btn {
+.form-btn-transparent {
 float:none;
 background-color:#fff;
   border: 2px #00b6ff solid;
@@ -31,8 +31,27 @@ background-color:#fff;
   margin-left: 5px;
 }
 
-.form-btn:hover {
+.form-btn-transparent:hover {
   background: #00b6ff; 
   border: 2px #00b6ff solid;
+  color: #fff;
+}
+
+.form-btn {
+float:none;
+background-color:#00b6ff;
+  border: 2px #00b6ff solid;
+  font-family: Arial;
+  color: #fff;
+  font-size: 15px;
+  padding: 6px 14px 6px 14px;
+  text-decoration: none;
+  margin-left: 5px;
+  max-width:590px;
+}
+
+.form-btn:hover {
+  background: #0880AF; 
+  border: 2px #0880AF solid;
   color: #fff;
 }
